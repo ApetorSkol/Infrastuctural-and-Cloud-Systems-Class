@@ -1,0 +1,4 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'PA234 Homework ICO:555179 Matej Slivka'
+theme = 'ananke'
