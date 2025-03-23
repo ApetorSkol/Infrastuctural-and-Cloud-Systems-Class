@@ -35,7 +35,8 @@ LABEL org.opencontainers.image.base.name="pa234hw1"
 WORKDIR /usr/share/nginx/html
 
 # Copy HTML generated HTML into the Workdir
-COPY --from=builder /app/public .
+# Set the owner as rootless nginx
+COPY --chown=nginx:nginx --from=builder /app/public .
 
-# Expose port 80 so we can access data from container
-EXPOSE 80/tcp
+# Expose port 8080 so we can access data from container
+EXPOSE 8080

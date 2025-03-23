@@ -2,7 +2,7 @@ Homework 2 - Multi-stage container build
 What is a multi-stage build and why is it useful?
 Docker Build Process
 In a traditional Docker build process, a single Dockerfile defines all the steps needed to create a container image. This includes installing dependencies, compiling source code, and setting up the runtime environment. The issue with this approach is that all build-time dependencies and tools remain in the final image, leading to large, bloated, and potentially insecure images.
-
+ 
 Example: Regular Build for a Go Application
 ```
 FROM golang:1.21 
