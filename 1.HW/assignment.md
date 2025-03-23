@@ -82,29 +82,3 @@ cerit.io/<your_e-infra-cz_login>/website:hw-submission
 
 
 Make the resulting image the smallest possible. Try to beat less than 10 MB. The size of your final Docker image will be scored and published, allowing you to compare your results with your colleagues. The one with smallest container image will be immediately signed up for Datacentre excursion.
-
-Submission
-☠️Submission deadline: March 12, 2025 23:59:59 ☠️
-
-We will evaluate resulting Dockerfile and container image.
-
-Upload Dockerfile to HW2 IS Depository (Odevzdavarna in Czech)
-Push the resulting container image to the container registry with tag `hw2-submission`.
-Homework 2
-Upload your Dockerfile here
-Odevzdávat do: 12. 3. 2025 vč.
-e-INFRA CZ Container Registry
-Need help?
-Homework 2 discussion
-Nové příspěvky: 1
-Visit seminar at Thu 27/2/2025 starting from 18:00 CET.
-
-You may also send an email to adrian@muni.cz.
-
-Rules
-
-We want you to learn something new, interesting, and useful—something that is good to know at least at a conceptual level when applying for any position.
-
-For your own benefit, ✨please✨ do not try to cheat by copying solutions from others, using unauthorized resources, or submitting work that is not your own. The goal is for you to truly understand the material, as this knowledge will benefit you in the long run.
-
-f you are already very familiar with the material covered in the homework, let us know in advance. Depending on the circumstances, you might be exempted from submitting the assignment. If you can support your claim with relevant materials—such as your own GitHub repository containing container manifests or similar projects—it will strengthen your case. Send short letter to adrian@muni.cz.

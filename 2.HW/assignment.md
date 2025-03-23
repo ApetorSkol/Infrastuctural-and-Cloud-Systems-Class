@@ -6,16 +6,17 @@ It enables structured packaging, parameterization, and templated deployments to 
 Basic Helm Principles
 1. Helm Charts Structure
 A typical Helm chart contains:
-
+```
 my-chart/
 |-- charts/           # Optional dependencies
 |-- templates/        # Templated Kubernetes manifests
 |-- values.yaml       # Default configuration values
 |-- Chart.yaml        # Chart metadata
 |-- README.md         # Documentation
+```
 2. Templating in Helm
 Helm uses Go templating for dynamic generation. Templates can reference values from values.yaml like so:
-
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -23,16 +24,17 @@ metadata:
   namespace: {{ .Values.namespace }}
 data:
   APP_ENV: {{ .Values.appEnv | default "production" }}
+```
 This lets you customize deployments without changing the templates.
 
 3. Functions in Helm Templating
-default: Default value if undefined.
-toYaml: Convert dict to YAML.
-tpl: Render string templates.
-include: Include another template file.
-lookup: Query existing resources.
+`default`: Default value if undefined.
+`toYaml`: Convert dict to YAML.
+`tpl`: Render string templates.
+`include`: Include another template file.
+`lookup`: Query existing resources.
 Example:
-
+```
 apiVersion: v1
 kind: Secret
 metadata:
@@ -40,9 +42,10 @@ metadata:
 data:
   username: {{ .Values.secret.username | b64enc }}
   password: {{ .Values.secret.password | b64enc }}
+```
 4. Reading Files in Helm
 Read a file from the chart with Files.Get:
-
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -50,9 +53,10 @@ metadata:
 data:
   config.yaml: |
     {{ .Files.Get "something.php" | indent 4 }}
+```
 5. Chart.yaml in Detail
 Defines chart metadata:
-
+```
 apiVersion: v2
 name: my-chart
 version: 1.0.0
@@ -71,6 +75,7 @@ version: Chart version
 appVersion: App version
 maintainers: Maintainer info
 dependencies: Required charts
+```
 Assignment
 Create a deployment of a simple PHP application with PostgreSQL and Minio. The PostgreSQL will be backed up to the Minio S3 service.
 
@@ -102,7 +107,7 @@ https://github.com/minio/operator/tree/master/helm/tenant
 see the values.yml what available to configure.
 
 Here is the PHP script you should use (the script fixed, should work):
-
+```
 <?php
 use Aws\S3\S3Client;
    
@@ -138,8 +143,10 @@ $buckets = $listResponse['Buckets'];
 foreach ($buckets as $bucket) {
     echo $bucket['Name'] . "\t" . $bucket['CreationDate'] . "\n";
 }   
+```
 Here is the values.yml we will be using to test the solution:
 
+```
 tenant:
   tenant:
     name: myminio
@@ -200,7 +207,4 @@ db:
     enable: true
     path: "s3://<uco>/"
     url: "http://minio"
-
-
-Submission
-☠️ Deadline: April 2, 2025 23:59:59
+```
